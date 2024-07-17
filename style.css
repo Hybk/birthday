@@ -11,29 +11,76 @@ body {
 .container {
   text-align: center;
   background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 2s ease-in-out;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
 }
 
 h1 {
-  font-size: 2.5em;
+  font-size: 3em;
   color: #ff6347;
+  margin-bottom: 20px;
 }
 
 p {
-  font-size: 1.2em;
-  color: #333;
+  font-size: 1.5em;
+  color: #555;
+  margin: 10px 0;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
+.balloons {
+  position: absolute;
+  top: -150px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.balloon {
+  width: 60px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #ff6347;
+  position: relative;
+  animation: float 4s ease-in-out infinite;
+}
+
+.balloon::before {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  width: 2px;
+  height: 20px;
+  background-color: #555;
+  transform: translateX(-50%);
+}
+
+#balloon1 {
+  background-color: #ff6347;
+  animation-delay: 0s;
+}
+
+#balloon2 {
+  background-color: #ffcc00;
+  animation-delay: 1s;
+}
+
+#balloon3 {
+  background-color: #66ccff;
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
   }
-  to {
-    opacity: 1;
-    transform: scale(1);
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
